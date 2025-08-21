@@ -162,7 +162,7 @@ class UnsplashMCPServer {
     });
   }
 
-  private async fetchImageAsBase64(url: string): Promise<string> {
+  private async fetchImageAsBase64(url: string): Promise<{base64: string, mimeType: string}> {
     try {
       const response = await fetch(url);
       if (!response.ok) {
@@ -175,7 +175,7 @@ class UnsplashMCPServer {
       // Determine MIME type from URL or response headers
       const contentType = response.headers.get('content-type') || 'image/jpeg';
       
-      return `data:${contentType};base64,${base64}`;
+      return { base64, mimeType: contentType };
     } catch (error) {
       throw new Error(`Error fetching image: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
@@ -263,11 +263,11 @@ class UnsplashMCPServer {
             });
 
             // Add the actual image
-            const base64Data = await this.fetchImageAsBase64(photo.urls.regular);
+            const imageData = await this.fetchImageAsBase64(photo.urls.regular);
             contentItems.push({
               type: "image",
-              data: base64Data,
-              mimeType: "image/jpeg",
+              data: imageData.base64,
+              mimeType: imageData.mimeType,
             });
           } catch (error) {
             // If image fetch fails, return error info
