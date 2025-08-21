@@ -1,0 +1,53 @@
+{
+  "name": "@jeffkit/unsplash-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for Unsplash photo search",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "unsplash-mcp-server": "./dist/index.js"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol", 
+    "unsplash",
+    "photos",
+    "search",
+    "api",
+    "stdio",
+    "claude",
+    "ai"
+  ],
+  "author": "Jeff Kit <bbmyth@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeffkit/unsplash-mcp-server.git"
+  },
+  "homepage": "https://github.com/jeffkit/unsplash-mcp-server#readme",
+  "bugs": {
+    "url": "https://github.com/jeffkit/unsplash-mcp-server/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
