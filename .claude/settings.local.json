@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__unsplash__search_photos"
+    ],
+    "deny": []
+  }
+}

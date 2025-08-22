@@ -69,6 +69,12 @@ Add to your MCP client configuration:
 }
 ```
 
+espesially for Claude code, use the following command to add the MCP server to the MCP server list.
+
+```bash
+claude mcp add-json unsplash '{"command": "npx", "args": ["@jeffkit/unsplash-mcp-server", "--access-key", "YOUR_API_KEY"]}'
+```
+
 With text format (JSON URLs):
 
 ```json

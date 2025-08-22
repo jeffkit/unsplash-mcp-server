@@ -96,7 +96,7 @@ class UnsplashMCPServer {
     this.server = new Server(
       {
         name: "unsplash-mcp-server",
-        version: "1.0.0",
+        version: "1.0.2",
       },
       {
         capabilities: {
@@ -256,10 +256,10 @@ class UnsplashMCPServer {
 
         for (const photo of data.results) {
           try {
-            // Add metadata as text
+            // Add metadata as JSON using original Unsplash API response
             contentItems.push({
               type: "text",
-              text: `Photo by ${photo.user.name} (@${photo.user.username})\nDescription: ${photo.description || photo.alt_description || "No description"}\nDimensions: ${photo.width}x${photo.height}\nLikes: ${photo.likes}\nColor: ${photo.color}`,
+              text: JSON.stringify(photo, null, 2),
             });
 
             // Add the actual image
