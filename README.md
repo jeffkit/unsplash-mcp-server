@@ -44,10 +44,10 @@ Get your Unsplash API access key:
 
 ```bash
 # Using command line argument (default: image format)
-npx @jeffkit/unsplash-mcp-server --access-key YOUR_API_KEY
+npx -y @jeffkit/unsplash-mcp-server --access-key YOUR_API_KEY
 
 # Using text format (returns JSON with URLs)
-npx @jeffkit/unsplash-mcp-server --access-key YOUR_API_KEY --response-format text
+npx -y @jeffkit/unsplash-mcp-server --access-key YOUR_API_KEY --response-format text
 
 # Using environment variable  
 UNSPLASH_ACCESS_KEY=YOUR_API_KEY @jeffkit/unsplash-mcp-server
@@ -65,7 +65,7 @@ Add to your MCP client configuration:
   "mcpServers": {
     "unsplash": {
       "command": "npx",
-      "args": ["@jeffkit/unsplash-mcp-server", "--access-key", "YOUR_API_KEY"]
+      "args": ["-y", "@jeffkit/unsplash-mcp-server", "--access-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -85,7 +85,7 @@ With text format (JSON URLs):
   "mcpServers": {
     "unsplash": {
       "command": "npx",
-      "args": ["@jeffkit/unsplash-mcp-server", "--access-key", "YOUR_API_KEY", "--response-format", "text"]
+      "args": ["-y", "@jeffkit/unsplash-mcp-server", "--access-key", "YOUR_API_KEY", "--response-format", "text"]
     }
   }
 }
@@ -98,7 +98,7 @@ Or with environment variable:
   "mcpServers": {
     "unsplash": {
       "command": "npx",
-      "args": ["@jeffkit/unsplash-mcp-server"],
+      "args": ["-y", "@jeffkit/unsplash-mcp-server"],
       "env": {
         "UNSPLASH_ACCESS_KEY": "YOUR_API_KEY"
       }

@@ -44,16 +44,16 @@ npm run build
 
 ```bash
 # 使用命令行参数（默认：图片格式）
-npx @jeffkit/unsplash-mcp-server --access-key YOUR_API_KEY
+npx -y @jeffkit/unsplash-mcp-server --access-key YOUR_API_KEY
 
 # 使用文本格式（返回包含 URL 的 JSON）
-npx @jeffkit/unsplash-mcp-server --access-key YOUR_API_KEY --response-format text
+npx -y @jeffkit/unsplash-mcp-server --access-key YOUR_API_KEY --response-format text
 
 # 使用环境变量
 UNSPLASH_ACCESS_KEY=YOUR_API_KEY @jeffkit/unsplash-mcp-server
 
 # 显示帮助
-npx @jeffkit/unsplash-mcp-server --help
+npx -y @jeffkit/unsplash-mcp-server --help
 ```
 
 ### MCP 客户端集成
@@ -65,7 +65,7 @@ npx @jeffkit/unsplash-mcp-server --help
   "mcpServers": {
     "unsplash": {
       "command": "npx",
-      "args": ["@jeffkit/unsplash-mcp-server", "--access-key", "YOUR_API_KEY"]
+      "args": ["-y", "@jeffkit/unsplash-mcp-server", "--access-key", "YOUR_API_KEY"]
     }
   }
 }
@@ -85,7 +85,7 @@ claude mcp add-json unsplash '{"command": "npx", "args": ["-y", "@jeffkit/unspla
   "mcpServers": {
     "unsplash": {
       "command": "npx",
-      "args": ["@jeffkit/unsplash-mcp-server", "--access-key", "YOUR_API_KEY", "--response-format", "text"]
+      "args": ["-y", "@jeffkit/unsplash-mcp-server", "--access-key", "YOUR_API_KEY", "--response-format", "text"]
     }
   }
 }
@@ -98,7 +98,7 @@ claude mcp add-json unsplash '{"command": "npx", "args": ["-y", "@jeffkit/unspla
   "mcpServers": {
     "unsplash": {
       "command": "npx",
-      "args": ["@jeffkit/unsplash-mcp-server"],
+      "args": ["-y", "@jeffkit/unsplash-mcp-server"],
       "env": {
         "UNSPLASH_ACCESS_KEY": "YOUR_API_KEY"
       }
