@@ -1,5 +1,7 @@
 # Unsplash MCP Server
 
+[English](README.md) | [中文](README_CN.md)
+
 A Model Context Protocol (MCP) server that provides photo search functionality using the Unsplash API with stdio transport.
 
 ## Features
@@ -69,10 +71,37 @@ Add to your MCP client configuration:
 }
 ```
 
-espesially for Claude code, use the following command to add the MCP server to the MCP server list.
+#### Claude Desktop
+Especially for Claude Desktop, use the following command to add the MCP server to the MCP server list:
 
 ```bash
 claude mcp add-json unsplash '{"command": "npx", "args": ["@jeffkit/unsplash-mcp-server", "--access-key", "YOUR_API_KEY"]}'
+```
+
+#### Gemini CLI
+For Gemini CLI, add the server configuration:
+
+```bash
+# Add unsplash MCP server to gemini-cli
+gemini config set mcp.servers.unsplash.command "npx @jeffkit/unsplash-mcp-server --access-key YOUR_API_KEY"
+
+# Or if using text format
+gemini config set mcp.servers.unsplash.command "npx @jeffkit/unsplash-mcp-server --access-key YOUR_API_KEY --response-format text"
+```
+
+Alternative configuration file approach (`~/.config/gemini-cli/config.json`):
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "unsplash": {
+        "command": "npx",
+        "args": ["@jeffkit/unsplash-mcp-server", "--access-key", "YOUR_API_KEY"]
+      }
+    }
+  }
+}
 ```
 
 With text format (JSON URLs):
@@ -169,7 +198,24 @@ Returns JSON with photo URLs and metadata:
 
 The server can be configured at startup to return either:
 
-1. **Image format** (default): Base64-encoded images as MCP Image content
+1. **Image format** (default): Base64-encoded images as MCP Image content with complete JSON metadata
 2. **Text format**: JSON with photo URLs and metadata as MCP Text content
 
 Choose the format based on your MCP client's capabilities and use case.
+
+## Changelog
+
+### v1.0.2
+- ✨ Added complete image URLs in metadata for image mode
+- 🔧 Use original Unsplash API response structure for data integrity
+- 📚 Added Gemini CLI configuration examples
+- 🌏 Added Chinese documentation
+
+### v1.0.1
+- 🐛 Various bug fixes and performance improvements
+
+### v1.0.0
+- 🎉 Initial release
+- 🔍 Basic Unsplash photo search functionality
+- 📊 Support for two response formats (image/text)
+- ⚡ stdio transport support
