@@ -71,37 +71,11 @@ Add to your MCP client configuration:
 }
 ```
 
-#### Claude Desktop
-Especially for Claude Desktop, use the following command to add the MCP server to the MCP server list:
+#### Claude Code
+Especially for Claude Code, use the following command to add the MCP server to the MCP server list:
 
 ```bash
-claude mcp add-json unsplash '{"command": "npx", "args": ["@jeffkit/unsplash-mcp-server", "--access-key", "YOUR_API_KEY"]}'
-```
-
-#### Gemini CLI
-For Gemini CLI, add the server configuration:
-
-```bash
-# Add unsplash MCP server to gemini-cli
-gemini config set mcp.servers.unsplash.command "npx @jeffkit/unsplash-mcp-server --access-key YOUR_API_KEY"
-
-# Or if using text format
-gemini config set mcp.servers.unsplash.command "npx @jeffkit/unsplash-mcp-server --access-key YOUR_API_KEY --response-format text"
-```
-
-Alternative configuration file approach (`~/.config/gemini-cli/config.json`):
-
-```json
-{
-  "mcp": {
-    "servers": {
-      "unsplash": {
-        "command": "npx",
-        "args": ["@jeffkit/unsplash-mcp-server", "--access-key", "YOUR_API_KEY"]
-      }
-    }
-  }
-}
+claude mcp add-json unsplash '{"command": "npx", "args": ["-y", "@jeffkit/unsplash-mcp-server", "--access-key", "YOUR_API_KEY"]}'
 ```
 
 With text format (JSON URLs):

@@ -71,37 +71,11 @@ npx @jeffkit/unsplash-mcp-server --help
 }
 ```
 
-#### Claude Desktop
-特别针对 Claude Desktop，使用以下命令将 MCP 服务器添加到服务器列表：
+#### Claude Code
+特别针对 Claude Code，使用以下命令将 MCP 服务器添加到服务器列表：
 
 ```bash
-claude mcp add-json unsplash '{"command": "npx", "args": ["@jeffkit/unsplash-mcp-server", "--access-key", "YOUR_API_KEY"]}'
-```
-
-#### Gemini CLI
-对于 Gemini CLI，添加服务器配置：
-
-```bash
-# 添加 unsplash MCP 服务器到 gemini-cli
-gemini config set mcp.servers.unsplash.command "npx @jeffkit/unsplash-mcp-server --access-key YOUR_API_KEY"
-
-# 或者使用文本格式
-gemini config set mcp.servers.unsplash.command "npx @jeffkit/unsplash-mcp-server --access-key YOUR_API_KEY --response-format text"
-```
-
-替代配置文件方式（`~/.config/gemini-cli/config.json`）：
-
-```json
-{
-  "mcp": {
-    "servers": {
-      "unsplash": {
-        "command": "npx",
-        "args": ["@jeffkit/unsplash-mcp-server", "--access-key", "YOUR_API_KEY"]
-      }
-    }
-  }
-}
+claude mcp add-json unsplash '{"command": "npx", "args": ["-y", "@jeffkit/unsplash-mcp-server", "--access-key", "YOUR_API_KEY"]}'
 ```
 
 使用文本格式（JSON URL）：
