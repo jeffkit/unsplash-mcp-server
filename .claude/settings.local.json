@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "mcp__unsplash__search_photos"
+      "mcp__unsplash__search_photos",
+      "WebFetch(domain:arxiv.org)",
+      "WebFetch(domain:langchain-ai.github.io)"
     ],
     "deny": []
   }
